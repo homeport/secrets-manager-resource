@@ -1,0 +1,7 @@
+.dockerignore
+.github
+unit.coverprofile
+Dockerfile
+LICENSE
+Makefile
+README.md
