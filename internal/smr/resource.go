@@ -33,6 +33,22 @@ import (
 	sm "github.com/IBM/secrets-manager-go-sdk/secretsmanagerv2"
 )
 
+const getSecretScript = `#!/bin/sh
+
+set -e
+set -u
+
+curl \
+  --fail \
+  --silent \
+  --request GET \
+  --location \
+  --header "Authorization: $(ibmcloud iam oauth-tokens --output json | jq --raw-output .iam_token)" \
+  --header "Accept: application/json" \
+  "%s/api/v2/secrets/%s"
+
+`
+
 func Check(r io.Reader) error {
 	config, err := LoadConfig(r)
 	if err != nil {
@@ -66,7 +82,7 @@ func Check(r io.Reader) error {
 }
 
 func In(r io.Reader, target string) error {
-	config, err := LoadConfig(r)
+	config, err := LoadInConfig(r)
 	if err != nil {
 		return err
 	}
@@ -100,29 +116,43 @@ func In(r io.Reader, target string) error {
 		return err
 	}
 
-	secret, _, err := secretsManagerService.GetSecret(secretsManagerService.NewGetSecretOptions(id))
-	if err != nil {
-		return err
-	}
+	switch config.Params["store-as"] {
+	case "file", "files":
+		secret, _, err := secretsManagerService.GetSecret(secretsManagerService.NewGetSecretOptions(id))
+		if err != nil {
+			return err
+		}
 
-	b, err := json.Marshal(secret)
-	if err != nil {
-		return err
-	}
+		b, err := json.Marshal(secret)
+		if err != nil {
+			return err
+		}
 
-	var mapping map[string]interface{}
-	if err := json.Unmarshal(b, &mapping); err != nil {
-		return err
-	}
+		var mapping map[string]interface{}
+		if err := json.Unmarshal(b, &mapping); err != nil {
+			return err
+		}
 
-	for k, v := range mapping {
-		switch obj := v.(type) {
-		case string:
-			if err := os.WriteFile(filepath.Join(target, k), []byte(obj), 0644); err != nil {
-				return err
+		for k, v := range mapping {
+			switch obj := v.(type) {
+			case string:
+				if err := os.WriteFile(filepath.Join(target, k), []byte(obj), 0644); err != nil {
+					return err
+				}
 			}
 		}
+
+	case "script":
+		var script = fmt.Sprintf(getSecretScript, config.Source.EndpointURL, id)
+		if err := os.WriteFile(filepath.Join(target, "get-secret.sh"), []byte(script), 0755); err != nil {
+			return err
+		}
+
+	default:
+		bunt.Fprintf(os.Stderr, "no or unknown _store-as_ parameter defined, no files are created\n")
 	}
+
+	// --- --- ---
 
 	output := Output{
 		Version: Version{Timestamp: time.Time(*metadata.UpdatedAt)},
@@ -132,6 +162,7 @@ func In(r io.Reader, target string) error {
 			{"StateDescription", *metadata.StateDescription},
 			{"CreatedAt", metadata.CreatedAt.String()},
 			{"UpdatedAt", metadata.UpdatedAt.String()},
+			{"SecretId", id},
 		},
 	}
 

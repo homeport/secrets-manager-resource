@@ -23,7 +23,7 @@ resource_types:
 
 One example would be to trigger a job, if the secret was updated in Secrets Manager.
 
-``` yaml
+```yaml
 resources:
 - name: some-secret
   type: secrets-manager-resource
@@ -39,6 +39,8 @@ jobs:
   plan:
   - get: some-secret
     trigger: true
+    params:
+      store-as: files
   - task: some-task
     config:
       inputs:
@@ -61,6 +63,13 @@ Checks whether it finds a secret by the provided name and returns the last _upda
 ### `in`: Obtains the secret data
 
 Gets the secret by name and creates files based on the secret fields. Different secret types will create different files since they have different fields in Secret Manager. Check the [Working with secrets of different types](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types) for more details on the types and their respective fields.
+
+#### Parameters
+
+* `store-as`: *Optional.* Defines what to do with the secret.
+  * `file` (or `files`) will use the API to obtain the secrets entry and store the content on disk with one file per secret entry detail, e.g. files like `name`, `description`, or `payload`. Please note, fields like `payload` will contain Base64 encoded content. Use this option with caution since the secret data will be stored on disk for the runtime of the container.
+  * `script` will create a `get-secret.sh` shell script that contains the `curl` command to obtain the secrets details. You have to make sure to be logged in the right account before calling the generated script so that the correct access tokens can be requested.
+  * _empty_/_omitted_ will result in no look-up of the secret itself and no data is written. Use this if you only need to be notified about the update of the secret details.
 
 ### `out`: No-op
 

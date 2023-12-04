@@ -35,6 +35,11 @@ type Config struct {
 	Version Version `json:"version"`
 }
 
+type InConfig struct {
+	Config
+	Params map[string]string `json:"params"`
+}
+
 type Source struct {
 	EndpointURL string `json:"endpointURL"`
 	ApiKey      string `json:"apikey"`
@@ -65,4 +70,18 @@ func LoadConfig(in io.Reader) (*Config, error) {
 	}
 
 	return &config, nil
+}
+
+func LoadInConfig(in io.Reader) (*InConfig, error) {
+	data, err := io.ReadAll(in)
+	if err != nil {
+		return nil, err
+	}
+
+	var inConfig InConfig
+	if err := json.Unmarshal(data, &inConfig); err != nil {
+		return nil, err
+	}
+
+	return &inConfig, nil
 }
