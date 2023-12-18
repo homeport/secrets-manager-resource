@@ -7,6 +7,7 @@ Concourse resource for secrets stored in IBM Cloud Secrets Manager instances.
 - **endpointURL**: _Required_ Endpoint URL of the Secrets Manager instance to connect to, see [secrets manager docs](https://cloud.ibm.com/apidocs/secrets-manager/secrets-manager-v2?code=go#endpoints) for more details.
 - **apikey**: _Required_ API key that allows access to read from the respective secrets manager instance.
 - **secretName**: _Required_ Name of the secret in the secrets manager instance. This is the name, not the ID of the secret. The secret will be searched for by name through the API.
+- **secretGroupID**: _Optional_ ID of the secret group to narrow down the search for the secret.
 
 ### Example
 

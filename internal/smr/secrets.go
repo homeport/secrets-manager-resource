@@ -56,9 +56,11 @@ func (s *SecretMetadata) Id() (string, error) {
 	return *s.ID, nil
 }
 
-func GetSecretMetaDataBySecretName(service sm.SecretsManagerV2, name string) (*SecretMetadata, error) {
-	listSecretsOptions := &sm.ListSecretsOptions{
-		Search: &name,
+func GetSecretMetaDataBySecretName(service sm.SecretsManagerV2, source Source) (*SecretMetadata, error) {
+	listSecretsOptions := &sm.ListSecretsOptions{Search: &source.SecretName}
+
+	if source.SecretGroupID != "" {
+		listSecretsOptions.Groups = append(listSecretsOptions.Groups, source.SecretGroupID)
 	}
 
 	pager, err := service.NewSecretsPager(listSecretsOptions)
@@ -77,11 +79,11 @@ func GetSecretMetaDataBySecretName(service sm.SecretsManagerV2, name string) (*S
 	}
 
 	if len(results) == 0 {
-		return nil, fmt.Errorf("cannot find secret with name %q", name)
+		return nil, fmt.Errorf("cannot find secret with name %q", source.SecretName)
 	}
 
 	if len(results) != 1 {
-		return nil, fmt.Errorf("more than one secret was found searching for %q", name)
+		return nil, fmt.Errorf("more than one secret was found searching for %q", source.SecretName)
 	}
 
 	data, err := json.Marshal(results[0])
