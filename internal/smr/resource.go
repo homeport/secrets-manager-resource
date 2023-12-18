@@ -60,7 +60,7 @@ func Check(r io.Reader) error {
 		return err
 	}
 
-	metadata, err := GetSecretMetaDataBySecretName(*secretsManagerService, config.Source.SecretName)
+	metadata, err := GetSecretMetaDataBySecretName(*secretsManagerService, config.Source)
 	if err != nil {
 		return err
 	}
@@ -92,7 +92,7 @@ func In(r io.Reader, target string) error {
 		return err
 	}
 
-	metadata, err := GetSecretMetaDataBySecretName(*secretsManagerService, config.Source.SecretName)
+	metadata, err := GetSecretMetaDataBySecretName(*secretsManagerService, config.Source)
 	if err != nil {
 		return err
 	}

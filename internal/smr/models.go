@@ -41,9 +41,10 @@ type InConfig struct {
 }
 
 type Source struct {
-	EndpointURL string `json:"endpointURL"`
-	ApiKey      string `json:"apikey"`
-	SecretName  string `json:"secretName"`
+	EndpointURL   string `json:"endpointURL"`
+	ApiKey        string `json:"apikey"`
+	SecretName    string `json:"secretName"`
+	SecretGroupID string `json:"secretGroupID"`
 }
 
 type CheckResult []Version
