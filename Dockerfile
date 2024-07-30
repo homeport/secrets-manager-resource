@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-FROM golang:1.22 as bootstrap
+FROM golang:1.22.1 as bootstrap
 WORKDIR /go/src/github.com/homeport/secrets-manager-resource
 COPY . .
 
@@ -34,5 +34,5 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
       ./cmd/...
 
 
-FROM alpine:latest
+FROM alpine:latest@sha256:0a4eaa0eecf5f8c050e5bba433f58c052be7587ee8af3e8b3910ef9ab5fbe9f5
 COPY --from=bootstrap /tmp/dist /
