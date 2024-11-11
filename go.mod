@@ -29,7 +29,7 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	go.mongodb.org/mongo-driver v1.17.1 // indirect
 	golang.org/x/crypto v0.29.0 // indirect
-	golang.org/x/net v0.30.0 // indirect
+	golang.org/x/net v0.31.0 // indirect
 	golang.org/x/sys v0.27.0 // indirect
 	golang.org/x/term v0.26.0 // indirect
 	golang.org/x/text v0.20.0 // indirect
