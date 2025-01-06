@@ -1,6 +1,7 @@
 module github.com/homeport/secrets-manager-resource
 
 go 1.21
+toolchain go1.22.5
 
 require (
 	github.com/IBM/go-sdk-core/v5 v5.18.3
@@ -16,7 +17,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.23.0 // indirect
-	github.com/gonvenience/term v1.0.2 // indirect
+	github.com/gonvenience/term v1.0.3 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.7 // indirect
