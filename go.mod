@@ -1,6 +1,7 @@
 module github.com/homeport/secrets-manager-resource
 
 go 1.22.10
+toolchain go1.23.7
 
 require (
 	github.com/IBM/go-sdk-core/v5 v5.18.5
@@ -30,8 +31,8 @@ require (
 	go.mongodb.org/mongo-driver v1.17.3 // indirect
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/net v0.35.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/term v0.29.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/term v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
