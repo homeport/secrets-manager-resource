@@ -1,0 +1,31 @@
+---
+name: Test Secrets Manager Resource Image Build
+
+on:
+  push:
+    tags-ignore:
+    - '**'
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  image-build-test:
+    if: ${{ github.repository == 'homeport/secrets-manager-resource' }}
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
+    env:
+      IMAGE_HOST: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build container image
+      env:
+        DOCKER_BUILDKIT: "1"
+        BUILDKIT_PROGRESS: plain
+      run: docker build --tag "${IMAGE_HOST}/${IMAGE_NAME}:test" .
