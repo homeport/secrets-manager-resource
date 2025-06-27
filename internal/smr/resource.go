@@ -30,7 +30,7 @@ import (
 
 	"github.com/gonvenience/bunt"
 
-	sm "github.com/IBM/secrets-manager-go-sdk/secretsmanagerv2"
+	sm "github.com/IBM/secrets-manager-go-sdk/v2/secretsmanagerv2"
 )
 
 const getSecretScript = `#!/bin/sh

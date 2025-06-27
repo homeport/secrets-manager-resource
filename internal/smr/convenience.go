@@ -22,7 +22,7 @@ package smr
 
 import (
 	"github.com/IBM/go-sdk-core/v5/core"
-	sm "github.com/IBM/secrets-manager-go-sdk/secretsmanagerv2"
+	sm "github.com/IBM/secrets-manager-go-sdk/v2/secretsmanagerv2"
 )
 
 func (c *Config) SecretsManagerV2Options() *sm.SecretsManagerV2Options {
