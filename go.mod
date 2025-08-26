@@ -4,7 +4,7 @@ go 1.24.4
 
 require (
 	github.com/IBM/go-sdk-core/v5 v5.21.0
-	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.14
+	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.15
 	github.com/go-openapi/strfmt v0.23.0
 	github.com/gonvenience/bunt v1.4.2
 )
