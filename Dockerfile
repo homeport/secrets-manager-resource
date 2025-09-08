@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-FROM golang:1.25.0 AS bootstrap
+FROM golang:1.25.1 AS bootstrap
 WORKDIR /go/src/github.com/homeport/secrets-manager-resource
 COPY . .
 
