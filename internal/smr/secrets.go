@@ -75,7 +75,35 @@ func GetSecretMetaDataBySecretName(service sm.SecretsManagerV2, source Source) (
 			return nil, err
 		}
 
-		results = append(results, nextPage...)
+		for _, entry := range nextPage {
+			var name string
+			switch secretMetadata := entry.(type) {
+			case *sm.ImportedCertificateMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.PublicCertificateMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.KVSecretMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.UsernamePasswordSecretMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.IAMCredentialsSecretMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.ArbitrarySecretMetadata:
+				name = *secretMetadata.Name
+
+			case *sm.PrivateCertificateMetadata:
+				name = *secretMetadata.Name
+			}
+
+			if name == source.SecretName {
+				results = append(results, entry)
+			}
+		}
 	}
 
 	if len(results) == 0 {
