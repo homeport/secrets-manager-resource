@@ -5,12 +5,11 @@ go 1.24.4
 require (
 	github.com/IBM/go-sdk-core/v5 v5.21.0
 	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.16
-	github.com/go-openapi/strfmt v0.24.0
+	github.com/go-openapi/strfmt v0.25.0
 	github.com/gonvenience/bunt v1.4.2
 )
 
 require (
-	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.11 // indirect
 	github.com/go-openapi/errors v0.22.4 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
