@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/IBM/go-sdk-core/v5 v5.21.2
 	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.18
-	github.com/go-openapi/strfmt v0.25.0
+	github.com/go-openapi/strfmt v0.26.0
 	github.com/gonvenience/bunt v1.4.3
 )
 
@@ -25,8 +25,7 @@ require (
 	github.com/mattn/go-ciede2000 v0.0.0-20170301095244-782e8c62fec3 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
-	github.com/oklog/ulid v1.3.1 // indirect
-	go.mongodb.org/mongo-driver v1.17.9 // indirect
+	github.com/oklog/ulid/v2 v2.1.1 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	golang.org/x/crypto v0.48.0 // indirect
 	golang.org/x/net v0.51.0 // indirect
