@@ -1,7 +1,7 @@
 github.com/IBM/go-sdk-core/v5 v5.21.3 h1:5HVPZu3aOdPHkqUGdyrmpuh8I/X+sdyog6HSLzahfHQ=
 github.com/IBM/go-sdk-core/v5 v5.21.3/go.mod h1:cZJMMEImJkIXCd61kHeDFtjbdDpXq4ua4ITrwpBYdWs=
-github.com/IBM/secrets-manager-go-sdk/v2 v2.0.21 h1:s185re2K0eKB+lU1XCnAiiDznOhDBkJn/H9gZGW3CDI=
-github.com/IBM/secrets-manager-go-sdk/v2 v2.0.21/go.mod h1:fWMAZhY9w45HAyffRPaoymlQXLkz/5SdwKFr0tY1+rY=
+github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22 h1:HWLMl/KU6cVIDfWrQgmUPpcpRz1PL7s6w+c5MizKys4=
+github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22/go.mod h1:ShHL1tfkAd1gLZX6vdZgg3K8tDHUgYYA2PERH1Z2wLY=
 github.com/Masterminds/semver/v3 v3.4.0 h1:Zog+i5UMtVoCU8oKka5P7i9q9HgrJeGzI9SA1Xbatp0=
 github.com/Masterminds/semver/v3 v3.4.0/go.mod h1:4V+yj/TJE1HU9XfppCwVMZq3I84lprf4nC11bSS5beM=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
