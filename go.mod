@@ -3,7 +3,7 @@ module github.com/homeport/secrets-manager-resource
 go 1.25.0
 
 require (
-	github.com/IBM/go-sdk-core/v5 v5.21.3
+	github.com/IBM/go-sdk-core/v5 v5.21.4
 	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22
 	github.com/go-openapi/strfmt v0.26.3
 	github.com/gonvenience/bunt v1.4.3
