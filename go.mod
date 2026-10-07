@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/IBM/go-sdk-core/v5 v5.24.0
 	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22
-	github.com/go-openapi/strfmt v0.27.2
+	github.com/go-openapi/strfmt v0.27.3
 	github.com/gonvenience/bunt v1.4.3
 )
 
