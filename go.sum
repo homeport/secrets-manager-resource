@@ -1,7 +1,7 @@
 github.com/IBM/go-sdk-core/v5 v5.25.2 h1:WBB+kbsYsF3Qn2kMuJPZBXPFtH53fyi3UNUaq+VFutY=
 github.com/IBM/go-sdk-core/v5 v5.25.2/go.mod h1:83BKM+mYr4eUlkiCJWf36wjF7PSdOOAxeIjTfoSCnTg=
-github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22 h1:HWLMl/KU6cVIDfWrQgmUPpcpRz1PL7s6w+c5MizKys4=
-github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22/go.mod h1:ShHL1tfkAd1gLZX6vdZgg3K8tDHUgYYA2PERH1Z2wLY=
+github.com/IBM/secrets-manager-go-sdk/v2 v2.0.24 h1:k/+wQzjMSttVZfP66VfZYIs93BHm2EBPmdKKcB5vW9k=
+github.com/IBM/secrets-manager-go-sdk/v2 v2.0.24/go.mod h1:Q3JkJbFekcWSsqNBnXMNY/Yp51Yocwk983T93+w0dfQ=
 github.com/Masterminds/semver/v3 v3.4.0 h1:Zog+i5UMtVoCU8oKka5P7i9q9HgrJeGzI9SA1Xbatp0=
 github.com/Masterminds/semver/v3 v3.4.0/go.mod h1:4V+yj/TJE1HU9XfppCwVMZq3I84lprf4nC11bSS5beM=
 github.com/fatih/color v1.16.0 h1:zmkK9Ngbjj+K0yRhTVONQh1p/HknKYSlNT+vZCzyokM=
