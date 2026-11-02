@@ -3,7 +3,7 @@ module github.com/homeport/secrets-manager-resource
 go 1.26.0
 
 require (
-	github.com/IBM/go-sdk-core/v5 v5.25.1
+	github.com/IBM/go-sdk-core/v5 v5.25.2
 	github.com/IBM/secrets-manager-go-sdk/v2 v2.0.22
 	github.com/go-openapi/strfmt v0.27.4
 	github.com/gonvenience/bunt v1.4.3
@@ -28,7 +28,7 @@ require (
 	github.com/oklog/ulid/v2 v2.1.2 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
 	golang.org/x/crypto v0.58.0 // indirect
-	golang.org/x/net v0.61.0 // indirect
+	golang.org/x/net v0.62.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/term v0.47.0 // indirect
 	golang.org/x/text v0.43.0 // indirect
